@@ -1,11 +1,11 @@
-var vscode = require('vscode');
-var loremIpsum = require('lorem-ipsum');
+const vscode = require('vscode');
+const cpf = require("@fnando/cpf/dist/node");
+const cnpj = require("@fnando/cnpj/dist/node");
 
 function activate(context) {
   var commands = [
-    vscode.commands.registerCommand('lorem-ipsum.line', generateLine),
-    vscode.commands.registerCommand('lorem-ipsum.paragraph', generateParagraph),
-    vscode.commands.registerCommand('lorem-ipsum.multipleParagraphs', generateMultipleParagraphs)
+    vscode.commands.registerCommand('br-tax-id-generator.cnpj', generateCNPJ),
+    vscode.commands.registerCommand('br-tax-id-generator.cpf', generateCPF)
   ];
 
   commands.forEach(function (command) {
@@ -13,47 +13,34 @@ function activate(context) {
   });
 }
 
-function insertText(lorem) {
+function insertText(text) {
   var editor = vscode.window.activeTextEditor;
   editor.edit(
     edit => editor.selections.forEach(
       selection => {
         edit.delete(selection);
-        edit.insert(selection.start, loremIpsum(lorem));
+        edit.insert(selection.start, text);
       }
     )
   );
 }
 
-function generateLine() {
-  insertText({
-    count: 1,
-    units: 'sentences'
-  });
+const options = [{label: "Yes", picked: true}, {label: "No"}]
+const showQuickPickOptions = [options, { placeHolder: 'Only digits?' }]
+
+function generateCNPJ() {
+  generate(cnpj.generate);
+}
+function generateCPF() {
+  generate(cpf.generate);
 }
 
-function generateParagraph() {
-  insertText({
-    count: 1,
-    units: 'paragraphs'
-  });
-}
-
-async function generateMultipleParagraphs() {
-  const items = [];
-  for (let i = 2; i <= 10; i++) {
-    items.push(i.toString());
-  }
-
-  const count = await vscode.window.showQuickPick(items, { placeHolder: 'How many paragraphs?' });
-  if (!count) {
-    return;
-  }
-
-  insertText({
-    count: Number.parseInt(count),
-    units: 'paragraphs'
-  });
+function generate(generator) {
+  vscode.window.showQuickPick(...showQuickPickOptions)
+    .then(selection => {
+      if (!selection) return;
+      insertText(generator(selection.label === 'No'));
+    });
 }
 
 exports.activate = activate;

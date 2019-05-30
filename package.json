@@ -1,21 +1,21 @@
 {
-  "name": "lorem-ipsum",
-  "displayName": "Lorem ipsum",
-  "description": "Generates and inserts lorem ipsum text",
-  "version": "1.2.0",
+  "name": "br-tax-id-generator",
+  "displayName": "Brazil's tax id",
+  "description": "Generates and inserts Tax Identification Numbers valids in Brazil",
+  "version": "0.0.1",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Tyriar/vscode-lorem-ipsum/issues"
+    "url": "https://github.com/abensur/vscode-br-tax-id-generator/issues"
   },
   "scripts": {
     "test": "mocha"
   },
-  "homepage": "https://github.com/Tyriar/vscode-lorem-ipsum",
+  "homepage": "https://github.com/abensur/vscode-br-tax-id-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Tyriar/vscode-lorem-ipsum"
+    "url": "https://github.com/abensur/vscode-br-tax-id-generator"
   },
-  "publisher": "Tyriar",
+  "publisher": "abensur",
   "engines": {
     "vscode": "0.10.x"
   },
@@ -23,24 +23,19 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:lorem-ipsum.line",
-    "onCommand:lorem-ipsum.paragraph",
-    "onCommand:lorem-ipsum.multipleParagraphs"
+    "onCommand:br-tax-id-generator.cnpj",
+    "onCommand:br-tax-id-generator.cpf"
   ],
   "main": "./extension",
   "contributes": {
     "commands": [
       {
-        "command": "lorem-ipsum.line",
-        "title": "Lorem Ipsum: Insert a line"
+        "command": "br-tax-id-generator.cnpj",
+        "title": "Brazil's tax id: Generate CNPJ"
       },
       {
-        "command": "lorem-ipsum.paragraph",
-        "title": "Lorem Ipsum: Insert a paragraph"
-      },
-      {
-        "command": "lorem-ipsum.multipleParagraphs",
-        "title": "Lorem Ipsum: Insert multiple paragraphs"
+        "command": "br-tax-id-generator.cpf",
+        "title": "Brazil's tax id: Generate CPF"
       }
     ]
   },
@@ -48,8 +43,9 @@
     "vscode": "0.10.x",
     "mocha": "~2.3.3"
   },
+  "icon": "images/icon.png",
   "dependencies": {
-    "lorem-ipsum": "^1.0.3"
-  },
-  "icon": "images/icon.png"
+    "@fnando/cnpj": "^0.1.1",
+    "@fnando/cpf": "^0.1.1"
+  }
 }
