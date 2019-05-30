@@ -14,3 +14,4 @@ Generates and inserts Tax Identification Numbers valids in Brazil into Visual St
 
 Press F1 type cpf or cnpf and select if you want only digits or not.
 
+![Usage animation](images/usage.gif)
