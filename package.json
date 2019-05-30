@@ -2,7 +2,7 @@
   "name": "br-tax-id-generator",
   "displayName": "Brazil's tax id",
   "description": "Generates and inserts Tax Identification Numbers valids in Brazil",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/abensur/vscode-br-tax-id-generator/issues"
