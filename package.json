@@ -7,9 +7,6 @@
   "bugs": {
     "url": "https://github.com/abensur/vscode-br-tax-id-generator/issues"
   },
-  "scripts": {
-    "test": "mocha"
-  },
   "homepage": "https://github.com/abensur/vscode-br-tax-id-generator",
   "repository": {
     "type": "git",
@@ -40,8 +37,7 @@
     ]
   },
   "devDependencies": {
-    "vscode": "0.10.x",
-    "mocha": "~2.3.3"
+    "vscode": "0.10.x"
   },
   "icon": "images/icon.png",
   "dependencies": {

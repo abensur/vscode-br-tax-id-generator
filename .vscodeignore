@@ -3,3 +3,4 @@ typings/**
 test/**
 .gitignore
 jsconfig.json
+br-tax-id-generator-0.0.1.vsix
