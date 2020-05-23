@@ -12,6 +12,6 @@ Generates and inserts Tax Identification Numbers valids in Brazil into Visual St
 
 # Usage
 
-Press F1 type cpf or cnpf and select if you want only digits or not.
+Press F1 type cpf or cnpj and select if you want only digits or not.
 
 ![Usage animation](images/usage.gif)
